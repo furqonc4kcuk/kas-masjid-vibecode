@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Infaq &amp; Donasi Online - SIK Masjid Al-Falah</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary": "#6c6e7e",
+                        "surface-dim": "#d4d6dc",
+                        "surface-container": "#e2e4ea",
+                        "tertiary-fixed": "#ede9fe",
+                        "primary": "#6366f1",
+                        "inverse-surface": "#2e3040",
+                        "on-tertiary-fixed-variant": "#5b21b6",
+                        "tertiary-fixed-dim": "#c4b5fd",
+                        "tertiary-container": "#a78bfa",
+                        "inverse-on-surface": "#e8eaf0",
+                        "on-secondary-fixed": "#1a1b26",
+                        "surface-container-highest": "#d6d8de",
+                        "outline": "#8a8c9a",
+                        "on-primary-container": "#e0e2ff",
+                        "surface-container-lowest": "#f0f2f8",
+                        "on-secondary-container": "#585a68",
+                        "on-background": "#2e3040",
+                        "surface-bright": "#edeef4",
+                        "on-tertiary-fixed": "#2e1065",
+                        "primary-container": "#818cf8",
+                        "on-surface": "#2e3040",
+                        "surface-container-low": "#e5e7ed",
+                        "outline-variant": "#d0d2dc",
+                        "on-surface-variant": "#585a68",
+                        "on-primary-fixed-variant": "#4338ca",
+                        "on-secondary-fixed-variant": "#404252",
+                        "surface-container-high": "#dcdee4",
+                        "on-primary-fixed": "#1e1b4b",
+                        "surface-variant": "#dcdee4",
+                        "error-container": "#fee2e2",
+                        "primary-fixed": "#e0e2ff",
+                        "surface": "#e8eaf0",
+                        "on-tertiary": "#ffffff",
+                        "secondary-container": "#d8dae6",
+                        "error": "#dc2626",
+                        "inverse-primary": "#a5b4fc",
+                        "on-error-container": "#991b1b",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#d8dae6",
+                        "tertiary": "#7c3aed",
+                        "background": "#e8eaf0",
+                        "on-tertiary-container": "#3b1f63",
+                        "secondary-fixed-dim": "#b8baca",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#a5b4fc",
+                        "surface-tint": "#6366f1"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "2xl": "2rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "display": ["Plus Jakarta Sans"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                }
+            }
+        }
+    </script>
+<!-- Custom Neomorphic Utilities -->
+<style type="text/tailwindcss">
+        @layer utilities {
+            .neo-raised {
+                @apply bg-surface shadow-[6px_6px_12px_rgba(0,0,0,0.08),-6px_-6px_12px_rgba(255,255,255,0.6)] rounded-2xl;
+            }
+            .neo-inset {
+                @apply bg-surface shadow-[inset_4px_4px_8px_rgba(0,0,0,0.06),inset_-4px_-4px_8px_rgba(255,255,255,0.5)] rounded-2xl;
+            }
+            .neo-btn {
+                @apply bg-surface shadow-[6px_6px_12px_rgba(0,0,0,0.08),-6px_-6px_12px_rgba(255,255,255,0.6)] rounded-full transition-all duration-300;
+            }
+            .neo-btn:active {
+                @apply shadow-[inset_4px_4px_8px_rgba(0,0,0,0.06),inset_-4px_-4px_8px_rgba(255,255,255,0.5)];
+            }
+            .neo-input {
+                @apply w-full bg-surface shadow-[inset_4px_4px_8px_rgba(0,0,0,0.06),inset_-4px_-4px_8px_rgba(255,255,255,0.5)] rounded-xl border-none focus:ring-0 focus:outline-none text-on-surface placeholder-on-surface-variant px-4 py-3;
+            }
+            
+            /* Hide scrollbar for clean UI */
+            ::-webkit-scrollbar {
+                width: 8px;
+            }
+            ::-webkit-scrollbar-track {
+                background: transparent;
+            }
+            ::-webkit-scrollbar-thumb {
+                background-color: #d0d2dc;
+                border-radius: 20px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+<!-- Shell: SideNavBar -->
+<nav class="w-64 h-screen fixed left-0 top-0 bg-background flex flex-col p-6 gap-4 shadow-[6px_6px_12px_rgba(0,0,0,0.08),-6px_-6px_12px_rgba(255,255,255,0.6)] z-50">
+<!-- Header -->
+<div class="flex items-center gap-4 mb-8 pl-2">
+<div class="w-12 h-12 rounded-full overflow-hidden neo-inset p-1">
+<img alt="Logo Masjid" class="w-full h-full object-cover rounded-full" data-alt="A highly detailed, modern minimalist logo for a mosque, featuring a subtle geometric dome and crescent motif. The design is clean, rendered in soft indigo and cool gray tones, reflecting a trustworthy, neomorphic, light-mode aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7t-GYcNZGRq0tpz1-8o_eCO_i9CYXLLgxoltwptMmI3fgmlmhoygrKrF9l1DuvHsrBPjR44leMYSMaz_H3PND6g1orU4zpbymB4Omfw6_R_5ZGatr3kx1c6mELqcPMo1u89SLBeSriPYzrxB3RuUYkr92NHJO6xkp6zvQABRi1A8bJHwkpU0r3cW-K6mSj5d4l_MVmp5iEzvFjpVW0XU1cQRx8GLNRyiRMkkEXM3cyOnmeQjrLWPH"/>
+</div>
+<div class="flex flex-col">
+<span class="font-display text-xl font-semibold text-on-surface dark:text-on-surface leading-tight">Masjid Al-Falah</span>
+<span class="text-xs text-on-surface-variant font-medium">Sistem Keuangan</span>
+</div>
+</div>
+<!-- Navigation Links -->
+<div class="flex flex-col gap-2 flex-grow">
+<!-- Item 1: Ringkasan -->
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-all duration-300 font-body text-label-sm font-medium rounded-xl" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">dashboard</span>
+                Ringkasan
+            </a>
+<!-- Item 2: Buku Kas -->
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-all duration-300 font-body text-label-sm font-medium rounded-xl" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">account_balance_wallet</span>
+                Buku Kas
+            </a>
+<!-- Item 3: Laporan Infaq -->
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-all duration-300 font-body text-label-sm font-medium rounded-xl" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">receipt_long</span>
+                Laporan Infaq
+            </a>
+<!-- Item 4: Zakat & Mustahik (ACTIVE - closest match to Donation) -->
+<a class="flex items-center gap-4 px-4 py-3 text-primary dark:text-primary shadow-[inset_4px_4px_8px_rgba(0,0,0,0.06),inset_-4px_-4px_8px_rgba(255,255,255,0.5)] rounded-lg font-body text-label-sm font-medium" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+                Zakat &amp; Mustahik
+            </a>
+<!-- Item 5: Inventaris Aset -->
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-all duration-300 font-body text-label-sm font-medium rounded-xl" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">inventory_2</span>
+                Inventaris Aset
+            </a>
+<!-- Item 6: Pengaturan -->
+<a class="flex items-center gap-4 px-4 py-3 mt-auto text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-all duration-300 font-body text-label-sm font-medium rounded-xl" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">settings</span>
+                Pengaturan
+            </a>
+</div>
+<!-- CTA -->
+<button class="w-full py-4 mt-4 font-body text-label-sm font-medium text-primary neo-btn flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">add</span>
+            Tambah Transaksi
+        </button>
+</nav>
+<!-- Shell: TopAppBar -->
+<header class="w-full sticky top-0 z-40 bg-background flex items-center justify-between px-8 py-4 ml-64 shadow-[0px_4px_8px_rgba(0,0,0,0.04)]" style="width: calc(100% - 16rem);">
+<!-- Title -->
+<div class="font-display text-lg font-semibold text-on-surface dark:text-on-surface">
+            SIK Masjid Al-Falah
+        </div>
+<!-- Actions -->
+<div class="flex items-center gap-6">
+<!-- Search Icon (on right logic) -->
+<button class="w-10 h-10 neo-btn flex items-center justify-center text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined">search</span>
+</button>
+<!-- Trailing Icons -->
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 neo-btn flex items-center justify-center text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="w-10 h-10 neo-btn flex items-center justify-center text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+</div>
+<!-- Vertical Divider -->
+<div class="w-px h-8 bg-surface-container-highest shadow-[inset_1px_0_2px_rgba(255,255,255,0.5),1px_0_2px_rgba(0,0,0,0.05)] mx-2"></div>
+<!-- Secondary Action -->
+<button class="px-6 py-2.5 font-display text-sm font-semibold text-on-surface-variant neo-btn active:scale-95 transition-transform">
+                Cetak Laporan
+            </button>
+<!-- Primary Action -->
+<button class="px-6 py-2.5 font-display text-sm font-semibold text-primary neo-btn shadow-[inset_4px_4px_8px_rgba(0,0,0,0.06),inset_-4px_-4px_8px_rgba(255,255,255,0.5)] flex items-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">qr_code_scanner</span>
+                Donasi QRIS
+            </button>
+</div>
+</header>
+<!-- Main Canvas Content -->
+<main class="ml-64 p-8 pt-10 min-h-screen">
+<!-- Page Header -->
+<div class="mb-10 flex items-center justify-between">
+<div>
+<h1 class="font-display text-3xl font-bold text-on-surface tracking-tight mb-2">Infaq &amp; Donasi Online</h1>
+<p class="text-on-surface-variant font-body text-sm">Pilih program kebaikan dan salurkan donasi Anda dengan mudah.</p>
+</div>
+<!-- Contextual Decorative Element -->
+<div class="w-16 h-16 neo-inset flex items-center justify-center text-primary/40">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">mosque</span>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-8">
+<!-- Left Column: Programs & Form (Span 7) -->
+<div class="xl:col-span-7 flex flex-col gap-8">
+<!-- Section 1: Donation Programs -->
+<section class="neo-raised p-8">
+<h2 class="font-display text-xl font-semibold mb-6 flex items-center gap-3">
+<span class="w-8 h-8 rounded-full neo-inset flex items-center justify-center text-primary text-sm font-bold">1</span>
+                        Pilih Program
+                    </h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="program-selector">
+<!-- Option A (Active by default) -->
+<div class="program-card cursor-pointer neo-inset p-5 flex flex-col items-center text-center gap-3 border-2 border-transparent transition-all" data-value="infaq">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-2 shadow-[inset_2px_2px_4px_rgba(0,0,0,0.05),inset_-2px_-2px_4px_rgba(255,255,255,0.8)]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">savings</span>
+</div>
+<h3 class="font-display font-semibold text-primary">Infaq Umum</h3>
+<p class="text-xs text-on-surface-variant">Operasional &amp; dakwah</p>
+</div>
+<!-- Option B -->
+<div class="program-card cursor-pointer neo-raised p-5 flex flex-col items-center text-center gap-3 border-2 border-transparent hover:text-primary transition-all" data-value="yatim">
+<div class="w-12 h-12 rounded-full neo-inset flex items-center justify-center text-on-surface-variant mb-2">
+<span class="material-symbols-outlined">child_care</span>
+</div>
+<h3 class="font-display font-medium text-on-surface">Santunan Yatim</h3>
+<p class="text-xs text-on-surface-variant">Bantuan pendidikan</p>
+</div>
+<!-- Option C -->
+<div class="program-card cursor-pointer neo-raised p-5 flex flex-col items-center text-center gap-3 border-2 border-transparent hover:text-primary transition-all" data-value="ramadan">
+<div class="w-12 h-12 rounded-full neo-inset flex items-center justify-center text-on-surface-variant mb-2">
+<span class="material-symbols-outlined">wb_twilight</span>
+</div>
+<h3 class="font-display font-medium text-on-surface">Persiapan Ramadan</h3>
+<p class="text-xs text-on-surface-variant">Ifthar &amp; kegiatan</p>
+</div>
+</div>
+</section>
+<!-- Section 3: Confirmation Form -->
+<section class="neo-raised p-8">
+<h2 class="font-display text-xl font-semibold mb-6 flex items-center gap-3">
+<span class="w-8 h-8 rounded-full neo-inset flex items-center justify-center text-primary text-sm font-bold">3</span>
+                        Konfirmasi Donasi
+                    </h2>
+<form class="flex flex-col gap-6">
+<!-- Nominal -->
+<div class="flex flex-col gap-2">
+<label class="text-sm font-medium text-on-surface-variant ml-2">Nominal Donasi (Rp)</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 font-semibold text-on-surface-variant">Rp</span>
+<input class="neo-input pl-12 font-semibold text-lg" placeholder="0" type="text" value="50.000"/>
+</div>
+</div>
+<!-- Quick Nominal Chips -->
+<div class="flex gap-3 overflow-x-auto pb-2">
+<button class="px-4 py-2 neo-inset text-primary font-medium text-sm whitespace-nowrap" type="button">50 Ribu</button>
+<button class="px-4 py-2 neo-raised text-on-surface font-medium text-sm whitespace-nowrap hover:text-primary transition-colors active:shadow-[inset_4px_4px_8px_rgba(0,0,0,0.06),inset_-4px_-4px_8px_rgba(255,255,255,0.5)]" type="button">100 Ribu</button>
+<button class="px-4 py-2 neo-raised text-on-surface font-medium text-sm whitespace-nowrap hover:text-primary transition-colors active:shadow-[inset_4px_4px_8px_rgba(0,0,0,0.06),inset_-4px_-4px_8px_rgba(255,255,255,0.5)]" type="button">500 Ribu</button>
+</div>
+<!-- Name & Note Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+<div class="flex flex-col gap-2">
+<label class="text-sm font-medium text-on-surface-variant ml-2">Nama Pengirim</label>
+<input class="neo-input" placeholder="Hamba Allah (Opsional)" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-medium text-on-surface-variant ml-2">Doa / Catatan</label>
+<input class="neo-input" placeholder="Tuliskan doa Anda..." type="text"/>
+</div>
+</div>
+<!-- Receipt Upload -->
+<div class="flex flex-col gap-2 mt-4">
+<label class="text-sm font-medium text-on-surface-variant ml-2">Bukti Transfer (Jika via Bank)</label>
+<div class="w-full h-32 neo-inset flex flex-col items-center justify-center gap-2 cursor-pointer group hover:bg-surface-container-lowest transition-colors relative overflow-hidden">
+<input accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" type="file"/>
+<div class="w-12 h-12 rounded-full neo-raised flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">upload_file</span>
+</div>
+<span class="text-sm font-medium text-on-surface-variant">Klik untuk unggah resi</span>
+</div>
+</div>
+<!-- Submit Button -->
+<button class="w-full py-4 mt-6 font-display font-bold text-lg text-primary neo-btn flex items-center justify-center gap-3" type="button">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Kirim Konfirmasi
+                        </button>
+</form>
+</section>
+</div>
+<!-- Right Column: Payment Methods (Span 5) -->
+<div class="xl:col-span-5 flex flex-col gap-8">
+<!-- Section 2: Payment Methods Wrapper -->
+<section class="neo-raised p-8 h-full flex flex-col">
+<h2 class="font-display text-xl font-semibold mb-6 flex items-center gap-3">
+<span class="w-8 h-8 rounded-full neo-inset flex items-center justify-center text-primary text-sm font-bold">2</span>
+                        Metode Pembayaran
+                    </h2>
+<!-- QRIS Prominent Display -->
+<div class="flex flex-col items-center mb-10">
+<div class="bg-surface-container px-4 py-1.5 rounded-full text-xs font-bold tracking-widest text-on-surface mb-6 shadow-[inset_2px_2px_4px_rgba(0,0,0,0.05),inset_-2px_-2px_4px_rgba(255,255,255,0.8)]">SCAN QRIS</div>
+<!-- Neomorphic Frame for QR -->
+<div class="w-64 h-64 neo-inset p-4 flex items-center justify-center mb-6 relative">
+<!-- Subtle corner markers -->
+<div class="absolute top-4 left-4 w-4 h-4 border-t-2 border-l-2 border-primary"></div>
+<div class="absolute top-4 right-4 w-4 h-4 border-t-2 border-r-2 border-primary"></div>
+<div class="absolute bottom-4 left-4 w-4 h-4 border-b-2 border-l-2 border-primary"></div>
+<div class="absolute bottom-4 right-4 w-4 h-4 border-b-2 border-r-2 border-primary"></div>
+<!-- Placeholder QR Image -->
+<div class="w-full h-full bg-white rounded-lg p-2 shadow-sm">
+<img alt="QRIS Code" class="w-full h-full object-contain opacity-90 mix-blend-multiply" data-alt="A high-resolution, crisp QR code graphic centered in a clean, soft UI frame. The QR code is dense and intricate, suitable for scanning, set against a pristine, light cool-gray background, exuding a modern, secure, and technologically advanced feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_rbOhz2jelkpPXY1-YxSMPisbRuOYbHzp2maOkKpsSCxpGBEYBX_z0jyUObJNbpswzoZLgT-wjWELj5BewD61T1CtxFGO4Wgu3Xtg7BhHEU7fpEWce2t222A4gEBJEaxmIY49Nbu_0Ga-sLW1ym569jlaTTDv3a1Wg-oBfEFzDR5Hvs3CPxf9XsXuon0V_wSyqPwFUnNAO9BckOGu9qgdBze6qUsFkAJu8z1VPQEuXjyS8EmuIkPt"/>
+</div>
+</div>
+<p class="text-center text-sm text-on-surface-variant font-medium max-w-[200px]">
+                            Scan menggunakan aplikasi E-Wallet atau Mobile Banking Anda.
+                        </p>
+</div>
+<!-- Divider -->
+<div class="w-full h-px bg-surface-container-highest shadow-[inset_0_1px_2px_rgba(255,255,255,0.5),0_1px_2px_rgba(0,0,0,0.05)] my-2"></div>
+<div class="text-center -mt-5 mb-4">
+<span class="bg-surface px-4 text-xs font-bold text-outline">ATAU TRANSFER BANK</span>
+</div>
+<!-- Bank Transfer Details -->
+<div class="flex flex-col gap-4 mt-auto">
+<!-- Bank 1 -->
+<div class="neo-inset p-5 flex items-center justify-between group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full neo-raised flex items-center justify-center font-display font-bold text-primary text-xs">BSI</div>
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface text-sm">Bank Syariah Indonesia</span>
+<span class="text-xs text-on-surface-variant font-mono mt-0.5">712 345 6789</span>
+</div>
+</div>
+<button class="w-8 h-8 neo-btn flex items-center justify-center text-on-surface-variant hover:text-primary" title="Salin Rekening">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+</button>
+</div>
+<!-- Bank 2 -->
+<div class="neo-inset p-5 flex items-center justify-between group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full neo-raised flex items-center justify-center font-display font-bold text-tertiary text-xs">BMI</div>
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface text-sm">Bank Muamalat</span>
+<span class="text-xs text-on-surface-variant font-mono mt-0.5">301 987 6543</span>
+</div>
+</div>
+<button class="w-8 h-8 neo-btn flex items-center justify-center text-on-surface-variant hover:text-primary" title="Salin Rekening">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+</button>
+</div>
+<p class="text-xs text-center text-on-surface-variant mt-2">a.n. DKM Masjid Al-Falah</p>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Interactive Script for Program Selection -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.program-card');
+            
+            cards.forEach(card => {
+                card.addEventListener('click', () => {
+                    // Reset all cards
+                    cards.forEach(c => {
+                        c.classList.remove('neo-inset');
+                        c.classList.add('neo-raised');
+                        
+                        // Reset text colors
+                        const title = c.querySelector('h3');
+                        const iconContainer = c.querySelector('.rounded-full');
+                        const icon = c.querySelector('.material-symbols-outlined');
+                        
+                        title.classList.remove('text-primary');
+                        title.classList.add('text-on-surface');
+                        
+                        iconContainer.classList.remove('bg-primary/10', 'text-primary', 'shadow-[inset_2px_2px_4px_rgba(0,0,0,0.05),inset_-2px_-2px_4px_rgba(255,255,255,0.8)]');
+                        iconContainer.classList.add('neo-inset', 'text-on-surface-variant');
+                        
+                        if(icon) icon.style.fontVariationSettings = "'FILL' 0";
+                    });
+
+                    // Set active state
+                    card.classList.remove('neo-raised');
+                    card.classList.add('neo-inset');
+                    
+                    const title = card.querySelector('h3');
+                    const iconContainer = card.querySelector('.rounded-full');
+                    const icon = card.querySelector('.material-symbols-outlined');
+                    
+                    title.classList.remove('text-on-surface');
+                    title.classList.add('text-primary');
+                    
+                    iconContainer.classList.remove('neo-inset', 'text-on-surface-variant');
+                    iconContainer.classList.add('bg-primary/10', 'text-primary', 'shadow-[inset_2px_2px_4px_rgba(0,0,0,0.05),inset_-2px_-2px_4px_rgba(255,255,255,0.8)]');
+                    
+                    if(icon) icon.style.fontVariationSettings = "'FILL' 1";
+                });
+            });
+        });
+    </script>
+</body></html>

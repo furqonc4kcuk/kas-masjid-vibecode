@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sistem Keuangan Masjid Al-Falah - Zakat &amp; Mustahik</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#6c6e7e",
+                        "surface-dim": "#d4d6dc",
+                        "surface-container": "#e2e4ea",
+                        "tertiary-fixed": "#ede9fe",
+                        "primary": "#6366f1",
+                        "inverse-surface": "#2e3040",
+                        "on-tertiary-fixed-variant": "#5b21b6",
+                        "tertiary-fixed-dim": "#c4b5fd",
+                        "tertiary-container": "#a78bfa",
+                        "inverse-on-surface": "#e8eaf0",
+                        "on-secondary-fixed": "#1a1b26",
+                        "surface-container-highest": "#d6d8de",
+                        "outline": "#8a8c9a",
+                        "on-primary-container": "#e0e2ff",
+                        "surface-container-lowest": "#f0f2f8",
+                        "on-secondary-container": "#585a68",
+                        "on-background": "#2e3040",
+                        "surface-bright": "#edeef4",
+                        "on-tertiary-fixed": "#2e1065",
+                        "primary-container": "#818cf8",
+                        "on-surface": "#2e3040",
+                        "surface-container-low": "#e5e7ed",
+                        "outline-variant": "#d0d2dc",
+                        "on-surface-variant": "#585a68",
+                        "on-primary-fixed-variant": "#4338ca",
+                        "on-secondary-fixed-variant": "#404252",
+                        "surface-container-high": "#dcdee4",
+                        "on-primary-fixed": "#1e1b4b",
+                        "surface-variant": "#dcdee4",
+                        "error-container": "#fee2e2",
+                        "primary-fixed": "#e0e2ff",
+                        "surface": "#e8eaf0",
+                        "on-tertiary": "#ffffff",
+                        "secondary-container": "#d8dae6",
+                        "error": "#dc2626",
+                        "inverse-primary": "#a5b4fc",
+                        "on-error-container": "#991b1b",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#d8dae6",
+                        "tertiary": "#7c3aed",
+                        "background": "#e8eaf0",
+                        "on-tertiary-container": "#3b1f63",
+                        "secondary-fixed-dim": "#b8baca",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#a5b4fc",
+                        "surface-tint": "#6366f1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "display": ["Plus Jakarta Sans"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-surface');
+            font-family: theme('fontFamily.body');
+        }
+        
+        /* Neomorphic Styles */
+        .neo-raised {
+            box-shadow: 6px 6px 12px rgba(0,0,0,0.08), -6px -6px 12px rgba(255,255,255,0.6);
+            border-radius: theme('borderRadius.xl');
+            background-color: theme('colors.background');
+        }
+        
+        .neo-pressed {
+            box-shadow: inset 4px 4px 8px rgba(0,0,0,0.06), inset -4px -4px 8px rgba(255,255,255,0.5);
+            border-radius: theme('borderRadius.xl');
+            background-color: theme('colors.background');
+        }
+
+        .neo-button {
+            box-shadow: 6px 6px 12px rgba(0,0,0,0.08), -6px -6px 12px rgba(255,255,255,0.6);
+            border-radius: theme('borderRadius.full');
+            background-color: theme('colors.background');
+            transition: all 0.2s ease-in-out;
+        }
+
+        .neo-button:active {
+            box-shadow: inset 4px 4px 8px rgba(0,0,0,0.06), inset -4px -4px 8px rgba(255,255,255,0.5);
+        }
+        
+        .neo-input {
+            box-shadow: inset 4px 4px 8px rgba(0,0,0,0.06), inset -4px -4px 8px rgba(255,255,255,0.5);
+            border-radius: theme('borderRadius.lg');
+            background-color: theme('colors.background');
+            border: none;
+            outline: none;
+        }
+        
+        .neo-input:focus {
+            box-shadow: inset 6px 6px 10px rgba(0,0,0,0.08), inset -6px -6px 10px rgba(255,255,255,0.7);
+        }
+
+        /* Hide scrollbar for clean neomorphic look */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: theme('colors.background');
+        }
+        ::-webkit-scrollbar-thumb {
+            background: theme('colors.surface-dim');
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex">
+<!-- SideNavBar -->
+<nav class="w-64 h-screen fixed left-0 top-0 bg-background dark:bg-background shadow-[6px_6px_12px_rgba(0,0,0,0.08),-6px_-6px_12px_rgba(255,255,255,0.6)] flex flex-col p-6 gap-4 z-50">
+<!-- Brand/Header -->
+<div class="flex items-center gap-3 mb-8 px-2">
+<div class="w-12 h-12 rounded-full neo-raised flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">mosque</span>
+</div>
+<div>
+<h1 class="font-display text-xl font-semibold text-on-surface dark:text-on-surface">Masjid Al-Falah</h1>
+<p class="font-body text-xs text-on-surface-variant">Sistem Keuangan</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<div class="flex flex-col gap-2 flex-grow">
+<a class="flex items-center gap-4 px-4 py-3 font-body text-label-sm font-medium text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-all duration-300 rounded-xl" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                Ringkasan
+            </a>
+<a class="flex items-center gap-4 px-4 py-3 font-body text-label-sm font-medium text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-all duration-300 rounded-xl" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+                Buku Kas
+            </a>
+<a class="flex items-center gap-4 px-4 py-3 font-body text-label-sm font-medium text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-all duration-300 rounded-xl" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+                Laporan Infaq
+            </a>
+<!-- ACTIVE TAB -->
+<a class="flex items-center gap-4 px-4 py-3 font-body text-label-sm font-medium text-primary dark:text-primary shadow-[inset_4px_4px_8px_rgba(0,0,0,0.06),inset_-4px_-4px_8px_rgba(255,255,255,0.5)] rounded-lg" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+                Zakat &amp; Mustahik
+            </a>
+<a class="flex items-center gap-4 px-4 py-3 font-body text-label-sm font-medium text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-all duration-300 rounded-xl" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+                Inventaris Aset
+            </a>
+<a class="flex items-center gap-4 px-4 py-3 font-body text-label-sm font-medium text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-all duration-300 rounded-xl" href="#">
+<span class="material-symbols-outlined">settings</span>
+                Pengaturan
+            </a>
+</div>
+<!-- CTA -->
+<button class="mt-auto neo-button py-3 px-4 flex items-center justify-center gap-2 text-primary font-medium w-full">
+<span class="material-symbols-outlined">add</span>
+            Tambah Transaksi
+        </button>
+</nav>
+<!-- Main Content Wrapper -->
+<main class="flex-1 ml-64 flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="w-full sticky top-0 z-40 bg-background dark:bg-background shadow-[0px_4px_8px_rgba(0,0,0,0.04)] flex items-center justify-between px-8 py-4">
+<h2 class="font-display text-headline-sm font-semibold text-primary dark:text-primary tracking-tight">SIK Masjid Al-Falah</h2>
+<div class="flex items-center gap-6">
+<!-- Search -->
+<div class="relative hidden md:block">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="neo-input py-2 pl-12 pr-4 w-64 text-sm text-on-surface placeholder-on-surface-variant" placeholder="Cari data..." type="text"/>
+</div>
+<!-- Icons -->
+<div class="flex gap-3">
+<button class="w-10 h-10 neo-raised flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-95">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="w-10 h-10 neo-raised flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-95">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+</div>
+<div class="w-px h-8 bg-surface-dim mx-2"></div>
+<!-- Actions -->
+<button class="px-4 py-2 text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">
+                    Cetak Laporan
+                </button>
+<button class="neo-button px-6 py-2 text-sm font-medium text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">qr_code_scanner</span>
+                    Donasi QRIS
+                </button>
+</div>
+</header>
+<!-- Page Canvas -->
+<div class="flex-1 p-8 overflow-y-auto">
+<!-- Header Section -->
+<div class="flex items-end justify-between mb-8">
+<div>
+<h1 class="font-display text-3xl font-bold text-on-surface mb-2">Manajemen ZIS &amp; Mustahik</h1>
+<p class="text-on-surface-variant">Pantau penerimaan zakat fitrah, maal, dan distribusi ke asnaf.</p>
+</div>
+</div>
+<!-- Stats Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+<div class="neo-raised p-6 flex flex-col justify-between">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded-full neo-pressed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">rice_bowl</span>
+</div>
+<span class="text-xs font-semibold text-primary bg-primary-container px-2 py-1 rounded-full">+12%</span>
+</div>
+<div>
+<p class="text-sm text-on-surface-variant mb-1">Total Beras Zakat</p>
+<h3 class="font-display text-2xl font-bold text-on-surface">1,250 <span class="text-lg font-medium text-on-surface-variant">Kg</span></h3>
+</div>
+</div>
+<div class="neo-raised p-6 flex flex-col justify-between">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded-full neo-pressed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">payments</span>
+</div>
+<span class="text-xs font-semibold text-primary bg-primary-container px-2 py-1 rounded-full">+8%</span>
+</div>
+<div>
+<p class="text-sm text-on-surface-variant mb-1">Total Zakat Maal (Uang)</p>
+<h3 class="font-display text-2xl font-bold text-on-surface">Rp 45.5M</h3>
+</div>
+</div>
+<div class="neo-raised p-6 flex flex-col justify-between md:col-span-2 relative overflow-hidden group">
+<!-- Decorative Background element -->
+<div class="absolute -right-10 -top-10 w-40 h-40 bg-surface-dim rounded-full mix-blend-multiply opacity-50 blur-2xl group-hover:bg-primary transition-colors duration-500"></div>
+<div class="relative z-10 flex flex-col h-full justify-between">
+<div class="flex justify-between items-center mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full neo-pressed flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[20px]">group</span>
+</div>
+<p class="text-sm font-medium text-on-surface-variant">Distribusi Mustahik</p>
+</div>
+<span class="text-sm font-semibold text-tertiary">85% Terdistribusi</span>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<h3 class="font-display text-xl font-bold text-on-surface">320 / 375 <span class="text-sm font-medium text-on-surface-variant">Keluarga</span></h3>
+</div>
+<!-- Neomorphic Progress Bar -->
+<div class="w-full h-4 neo-pressed rounded-full overflow-hidden p-1">
+<div class="h-full bg-tertiary rounded-full w-[85%] relative overflow-hidden">
+<!-- Shine effect on progress bar -->
+<div class="absolute top-0 left-0 w-full h-1/2 bg-white/20"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Content Area with Tabs -->
+<div class="neo-raised p-6">
+<!-- Custom Neomorphic Tabs -->
+<div class="flex gap-4 mb-8 border-b-2 border-surface-dim pb-2" id="tab-container">
+<button class="px-4 py-2 font-semibold text-primary border-b-2 border-primary -mb-[10px] z-10" onclick="switchTab('penerimaan')">
+                        Penerimaan Zakat
+                    </button>
+<button class="px-4 py-2 font-medium text-on-surface-variant hover:text-on-surface transition-colors" onclick="switchTab('mustahik')">
+                        Daftar Mustahik
+                    </button>
+</div>
+<!-- Tab Content: Penerimaan -->
+<div class="block" id="tab-penerimaan">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-display text-lg font-bold text-on-surface">Data Penerimaan Zakat Fitrah &amp; Maal</h3>
+<button class="neo-button px-5 py-2 text-sm font-medium text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                            Penerimaan Baru
+                        </button>
+</div>
+<div class="w-full neo-pressed p-4 overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-surface-dim">
+<th class="py-3 px-4 font-medium text-sm text-on-surface-variant">Tanggal</th>
+<th class="py-3 px-4 font-medium text-sm text-on-surface-variant">Nama Muzakki</th>
+<th class="py-3 px-4 font-medium text-sm text-on-surface-variant">Jenis Zakat</th>
+<th class="py-3 px-4 font-medium text-sm text-on-surface-variant">Bentuk</th>
+<th class="py-3 px-4 font-medium text-sm text-on-surface-variant text-right">Jumlah</th>
+<th class="py-3 px-4 font-medium text-sm text-on-surface-variant text-center">Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-surface-dim/50 hover:bg-surface-container-lowest transition-colors">
+<td class="py-4 px-4 text-sm text-on-surface">24 Mar 2024</td>
+<td class="py-4 px-4 text-sm font-medium text-on-surface">Bpk. Ahmad Fauzi &amp; Keluarga (4 Jiwa)</td>
+<td class="py-4 px-4 text-sm text-on-surface-variant">Zakat Fitrah</td>
+<td class="py-4 px-4 text-sm text-on-surface-variant">Beras</td>
+<td class="py-4 px-4 text-sm font-semibold text-on-surface text-right">10 Kg</td>
+<td class="py-4 px-4 text-center">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#ecfdf5] text-[#065f46]">Diterima</span>
+</td>
+</tr>
+<tr class="border-b border-surface-dim/50 hover:bg-surface-container-lowest transition-colors">
+<td class="py-4 px-4 text-sm text-on-surface">24 Mar 2024</td>
+<td class="py-4 px-4 text-sm font-medium text-on-surface">Ibu Siti Aminah</td>
+<td class="py-4 px-4 text-sm text-on-surface-variant">Zakat Maal</td>
+<td class="py-4 px-4 text-sm text-on-surface-variant">Uang Tunai</td>
+<td class="py-4 px-4 text-sm font-semibold text-on-surface text-right">Rp 2.500.000</td>
+<td class="py-4 px-4 text-center">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#ecfdf5] text-[#065f46]">Diterima</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="py-4 px-4 text-sm text-on-surface">23 Mar 2024</td>
+<td class="py-4 px-4 text-sm font-medium text-on-surface">Hamba Allah</td>
+<td class="py-4 px-4 text-sm text-on-surface-variant">Fidyah</td>
+<td class="py-4 px-4 text-sm text-on-surface-variant">Uang Tunai</td>
+<td class="py-4 px-4 text-sm font-semibold text-on-surface text-right">Rp 150.000</td>
+<td class="py-4 px-4 text-center">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#ecfdf5] text-[#065f46]">Diterima</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Tab Content: Mustahik (Hidden by default, simplistic structure for demo) -->
+<div class="hidden" id="tab-mustahik">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-display text-lg font-bold text-on-surface">Daftar Penerima Zakat (Asnaf)</h3>
+<button class="neo-button px-5 py-2 text-sm font-medium text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">person_add</span>
+                            Tambah Mustahik
+                        </button>
+</div>
+<div class="w-full neo-pressed p-8 flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant mb-4">group</span>
+<p class="text-on-surface-variant">Tampilan Daftar Mustahik akan muncul di sini.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script>
+        // Simple vanilla JS for tab switching
+        function switchTab(tabId) {
+            const tabs = {
+                'penerimaan': document.getElementById('tab-penerimaan'),
+                'mustahik': document.getElementById('tab-mustahik')
+            };
+            const buttons = document.getElementById('tab-container').children;
+
+            // Hide all tabs
+            Object.values(tabs).forEach(tab => tab.classList.add('hidden'));
+            
+            // Reset button styles
+            Array.from(buttons).forEach(btn => {
+                btn.className = "px-4 py-2 font-medium text-on-surface-variant hover:text-on-surface transition-colors";
+            });
+
+            // Show active tab
+            tabs[tabId].classList.remove('hidden');
+            
+            // Highlight active button
+            const activeIndex = tabId === 'penerimaan' ? 0 : 1;
+            buttons[activeIndex].className = "px-4 py-2 font-semibold text-primary border-b-2 border-primary -mb-[10px] z-10";
+        }
+    </script>
+</body></html>

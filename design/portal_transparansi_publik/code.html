@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Portal Transparansi Masjid Al-Falah</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#6c6e7e",
+                        "surface-dim": "#d4d6dc",
+                        "surface-container": "#e2e4ea",
+                        "tertiary-fixed": "#ede9fe",
+                        "primary": "#6366f1",
+                        "inverse-surface": "#2e3040",
+                        "on-tertiary-fixed-variant": "#5b21b6",
+                        "tertiary-fixed-dim": "#c4b5fd",
+                        "tertiary-container": "#a78bfa",
+                        "inverse-on-surface": "#e8eaf0",
+                        "on-secondary-fixed": "#1a1b26",
+                        "surface-container-highest": "#d6d8de",
+                        "outline": "#8a8c9a",
+                        "on-primary-container": "#e0e2ff",
+                        "surface-container-lowest": "#f0f2f8",
+                        "on-secondary-container": "#585a68",
+                        "on-background": "#2e3040",
+                        "surface-bright": "#edeef4",
+                        "on-tertiary-fixed": "#2e1065",
+                        "primary-container": "#818cf8",
+                        "on-surface": "#2e3040",
+                        "surface-container-low": "#e5e7ed",
+                        "outline-variant": "#d0d2dc",
+                        "on-surface-variant": "#585a68",
+                        "on-primary-fixed-variant": "#4338ca",
+                        "on-secondary-fixed-variant": "#404252",
+                        "surface-container-high": "#dcdee4",
+                        "on-primary-fixed": "#1e1b4b",
+                        "surface-variant": "#dcdee4",
+                        "error-container": "#fee2e2",
+                        "primary-fixed": "#e0e2ff",
+                        "surface": "#e8eaf0",
+                        "on-tertiary": "#ffffff",
+                        "secondary-container": "#d8dae6",
+                        "error": "#dc2626",
+                        "inverse-primary": "#a5b4fc",
+                        "on-error-container": "#991b1b",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#d8dae6",
+                        "tertiary": "#7c3aed",
+                        "background": "#e8eaf0",
+                        "on-tertiary-container": "#3b1f63",
+                        "secondary-fixed-dim": "#b8baca",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#a5b4fc",
+                        "surface-tint": "#6366f1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "display": ["Plus Jakarta Sans"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    },
+                    boxShadow: {
+                        'neo-raised': '6px 6px 12px rgba(0,0,0,0.08), -6px -6px 12px rgba(255,255,255,0.6)',
+                        'neo-pressed': 'inset 4px 4px 8px rgba(0,0,0,0.06), inset -4px -4px 8px rgba(255,255,255,0.5)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.background'); color: theme('colors.on-surface'); font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="antialiased min-h-screen">
+<!-- Top Navigation (No SideNav, based on JSON but simplified for full width) -->
+<header class="w-full sticky top-0 z-40 bg-background shadow-[0px_4px_8px_rgba(0,0,0,0.04)]">
+<div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">mosque</span>
+<div>
+<h1 class="font-display text-lg font-semibold text-on-surface">Masjid Al-Falah</h1>
+<p class="text-xs text-on-surface-variant font-medium">Portal Transparansi Publik</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity p-2 rounded-full hover:shadow-neo-pressed">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<button class="bg-primary text-on-primary font-semibold py-2 px-6 rounded-full shadow-neo-raised hover:shadow-neo-pressed hover:bg-surface hover:text-primary transition-all duration-300">
+                    Donasi QRIS
+                </button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="max-w-7xl mx-auto px-6 py-12 space-y-12">
+<!-- Hero Section: Total Kas -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="col-span-1 md:col-span-2 bg-background rounded-xl p-8 shadow-neo-raised flex flex-col justify-center">
+<h2 class="text-on-surface-variant font-medium mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">account_balance_wallet</span>
+                    Total Kas Saat Ini
+                </h2>
+<div class="text-5xl font-bold text-on-surface mb-4">Rp 145.850.000</div>
+<p class="text-sm text-on-surface-variant">Terakhir diperbarui: Hari ini, 09:30 WIB</p>
+<div class="mt-8 flex gap-4">
+<button class="bg-background text-primary font-semibold py-3 px-8 rounded-full shadow-neo-raised hover:shadow-neo-pressed transition-all duration-300 active:scale-95 flex items-center gap-2">
+<span class="material-symbols-outlined">favorite</span>
+                        Infaq Sekarang
+                    </button>
+<button class="bg-background text-on-surface-variant font-semibold py-3 px-8 rounded-full shadow-neo-raised hover:shadow-neo-pressed transition-all duration-300 active:scale-95 flex items-center gap-2">
+<span class="material-symbols-outlined">download</span>
+                        Unduh Laporan
+                    </button>
+</div>
+</div>
+<!-- Quick Stats -->
+<div class="col-span-1 space-y-6">
+<div class="bg-background rounded-xl p-6 shadow-neo-raised">
+<h3 class="text-sm text-on-surface-variant font-medium mb-1">Pemasukan Bulan Ini</h3>
+<div class="text-2xl font-bold text-primary">Rp 32.400.000</div>
+<div class="text-xs text-tertiary mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +12% dari bulan lalu
+                    </div>
+</div>
+<div class="bg-background rounded-xl p-6 shadow-neo-raised">
+<h3 class="text-sm text-on-surface-variant font-medium mb-1">Pengeluaran Bulan Ini</h3>
+<div class="text-2xl font-bold text-on-surface">Rp 18.200.000</div>
+<div class="text-xs text-outline mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">payments</span> Operasional &amp; Bantuan
+                    </div>
+</div>
+</div>
+</section>
+<!-- Bento Grid: Cash Flow & Donations -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Interactive Chart Area (Placeholder for actual chart) -->
+<div class="lg:col-span-2 bg-background rounded-xl p-8 shadow-neo-raised">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-lg font-semibold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary">analytics</span>
+                        Arus Kas 6 Bulan Terakhir
+                    </h2>
+<div class="flex gap-2 bg-background p-1 rounded-lg shadow-neo-pressed">
+<button class="px-4 py-1 rounded-md bg-background shadow-neo-raised text-primary text-sm font-medium">Pemasukan</button>
+<button class="px-4 py-1 rounded-md text-on-surface-variant text-sm font-medium hover:text-primary transition-colors">Pengeluaran</button>
+</div>
+</div>
+<!-- Chart Visual Placeholder -->
+<div class="h-64 w-full bg-background rounded-xl shadow-neo-pressed p-4 flex items-end justify-between gap-2 relative">
+<!-- Bars -->
+<div class="w-full bg-primary/20 rounded-t-sm" style="height: 40%"></div>
+<div class="w-full bg-primary/40 rounded-t-sm" style="height: 60%"></div>
+<div class="w-full bg-primary/60 rounded-t-sm" style="height: 50%"></div>
+<div class="w-full bg-primary/80 rounded-t-sm" style="height: 75%"></div>
+<div class="w-full bg-primary/90 rounded-t-sm" style="height: 65%"></div>
+<div class="w-full bg-primary rounded-t-sm" style="height: 90%"></div>
+<!-- Grid Lines -->
+<div class="absolute inset-4 flex flex-col justify-between pointer-events-none border-t border-outline-variant/30 pt-1">
+<div class="w-full h-px bg-outline-variant/20"></div>
+<div class="w-full h-px bg-outline-variant/20"></div>
+<div class="w-full h-px bg-outline-variant/20"></div>
+<div class="w-full h-px bg-outline-variant/20"></div>
+</div>
+</div>
+<div class="flex justify-between mt-2 text-xs text-on-surface-variant px-4">
+<span>Okt</span><span>Nov</span><span>Des</span><span>Jan</span><span>Feb</span><span>Mar</span>
+</div>
+</div>
+<!-- Recent Donations Log -->
+<div class="lg:col-span-1 bg-background rounded-xl p-8 shadow-neo-raised flex flex-col">
+<h2 class="text-lg font-semibold text-on-surface mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">receipt_long</span>
+                    Log Donasi Terkini
+                </h2>
+<div class="flex-1 overflow-y-auto pr-2 space-y-4 max-h-[300px]">
+<!-- Log Items -->
+<div class="bg-background rounded-lg p-4 shadow-neo-pressed flex justify-between items-center">
+<div>
+<div class="font-medium text-sm text-on-surface">Hamba Allah</div>
+<div class="text-xs text-on-surface-variant">Infaq Jumat • Hari ini, 12:15</div>
+</div>
+<div class="font-semibold text-primary text-sm">+ Rp 500.000</div>
+</div>
+<div class="bg-background rounded-lg p-4 shadow-neo-pressed flex justify-between items-center">
+<div>
+<div class="font-medium text-sm text-on-surface">Bpk. H. Ahmad</div>
+<div class="text-xs text-on-surface-variant">Wakaf Karpet • Kemarin</div>
+</div>
+<div class="font-semibold text-primary text-sm">+ Rp 2.000.000</div>
+</div>
+<div class="bg-background rounded-lg p-4 shadow-neo-pressed flex justify-between items-center">
+<div>
+<div class="font-medium text-sm text-on-surface">Hamba Allah</div>
+<div class="text-xs text-on-surface-variant">Infaq Pembangunan • Kemarin</div>
+</div>
+<div class="font-semibold text-primary text-sm">+ Rp 1.500.000</div>
+</div>
+<div class="bg-background rounded-lg p-4 shadow-neo-pressed flex justify-between items-center">
+<div>
+<div class="font-medium text-sm text-on-surface">Ibu Siti M.</div>
+<div class="text-xs text-on-surface-variant">Zakat Maal • 2 Hari lalu</div>
+</div>
+<div class="font-semibold text-primary text-sm">+ Rp 3.200.000</div>
+</div>
+</div>
+<button class="mt-4 w-full text-center text-sm font-medium text-primary hover:text-tertiary transition-colors">
+                    Lihat Semua
+                </button>
+</div>
+</section>
+<!-- Active Waqf Programs -->
+<section>
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-2xl font-semibold text-on-surface flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary text-3xl" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+                    Program Wakaf Aktif
+                </h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Program 1 -->
+<div class="bg-background rounded-xl p-6 shadow-neo-raised flex flex-col md:flex-row gap-6 items-center">
+<div class="w-full md:w-1/3 h-32 rounded-lg shadow-neo-pressed overflow-hidden relative">
+<img class="w-full h-full object-cover mix-blend-multiply opacity-80" data-alt="A soft, bright, neomorphic UI style illustration of a rolled-up plush mosque carpet in warm lighting, using the deep indigo and violet brand colors against a light gray background, highly detailed and serene." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC49qFaewvkqEcUT6sPsAmeyGIUfvW23o3OwY_wme23mQrKI1f01gGr44plC99z3xhZE72cHLKy0sk3x2eIkzDbda4ZCEVv7UISwUZjFkKlmcCllcgdjTt1si79fGgT-5_LWwYyr5K9xPsPHareUe2YmOjZ1IHPwJqX_xrxoEa7wBQqzlgYevpeDZ4C3DI4FB-uHCd8g5wCZ9AYN-WGcznPEc8tsMzS6zyjwdt1wIBC3JyJLHLeug0N"/>
+</div>
+<div class="w-full md:w-2/3 space-y-3">
+<h3 class="text-lg font-semibold text-on-surface">Pengadaan Karpet Utama</h3>
+<p class="text-sm text-on-surface-variant">Penggantian karpet saf utama masjid untuk kenyamanan ibadah jamaah.</p>
+<div class="space-y-1 mt-4">
+<div class="flex justify-between text-xs font-medium">
+<span class="text-primary">Terkumpul: Rp 15.000.000</span>
+<span class="text-on-surface-variant">Target: Rp 25.000.000</span>
+</div>
+<div class="w-full h-3 bg-background rounded-full shadow-neo-pressed overflow-hidden">
+<div class="h-full bg-primary rounded-full w-[60%]"></div>
+</div>
+</div>
+<button class="mt-2 text-sm bg-background text-primary font-medium py-2 px-4 rounded-lg shadow-neo-raised hover:shadow-neo-pressed transition-all active:scale-95 w-max">
+                            Ikut Wakaf
+                        </button>
+</div>
+</div>
+<!-- Program 2 -->
+<div class="bg-background rounded-xl p-6 shadow-neo-raised flex flex-col md:flex-row gap-6 items-center">
+<div class="w-full md:w-1/3 h-32 rounded-lg shadow-neo-pressed overflow-hidden relative">
+<img class="w-full h-full object-cover mix-blend-multiply opacity-80" data-alt="A soft, neomorphic UI style illustration of a mosque roof structure under repair, rendered in soft gray clay-like 3D with glowing indigo light accents, clean and minimalist architectural vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyPPj_VgSzflgjH_JV8_SRDOOFnDg1Zo-0JDwVWiUcUu1x9pVl8hZ9oZ4fnHyYW0J0UvHuaCohLwEmQ-kitAYAJG0Uc8FKCkSO2H9MKjoOLlBg1tvlOUvOWOUNZhwvDOfAuq7yIBmJiKXnC9S13AVAvOfN54rtbTnnPMCGTToqROnDrsXhW4aTNtRy5EceodvSaBKsYQefAUYg5XaiBOa4_KBWsXjCpOzRQ_EAN6jEtmIIb1ElSEx1"/>
+</div>
+<div class="w-full md:w-2/3 space-y-3">
+<h3 class="text-lg font-semibold text-on-surface">Renovasi Atap Sisi Kanan</h3>
+<p class="text-sm text-on-surface-variant">Perbaikan kebocoran atap pada area jamaah wanita sebelum musim hujan.</p>
+<div class="space-y-1 mt-4">
+<div class="flex justify-between text-xs font-medium">
+<span class="text-tertiary">Terkumpul: Rp 8.500.000</span>
+<span class="text-on-surface-variant">Target: Rp 10.000.000</span>
+</div>
+<div class="w-full h-3 bg-background rounded-full shadow-neo-pressed overflow-hidden">
+<div class="h-full bg-tertiary rounded-full w-[85%]"></div>
+</div>
+</div>
+<button class="mt-2 text-sm bg-background text-tertiary font-medium py-2 px-4 rounded-lg shadow-neo-raised hover:shadow-neo-pressed transition-all active:scale-95 w-max">
+                            Ikut Wakaf
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+</body></html>
